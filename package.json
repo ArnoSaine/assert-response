@@ -1,0 +1,44 @@
+{
+  "name": "assert-response",
+  "version": "0.0.0",
+  "description": "A lightweight utility library for asserting HTTP response conditions and throwing a Response with the appropriate HTTP status code, and optional body and options.",
+  "keywords": [
+    "assert",
+    "http",
+    "response",
+    "invariant"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnoSaine/assert-response.git"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Arno Saine",
+    "email": "arno@mowhi.com"
+  },
+  "type": "module",
+  "exports": "./lib/main.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "prebuild": "node scripts/prebuild.ts",
+    "build": "tsc --project tsconfig.lib.json",
+    "dev": "npm run build -- --watch",
+    "release": "npm run build && npm test && changeset version && changeset publish",
+    "test": "node --experimental-strip-types --disable-warning=ExperimentalWarning --test './src/**/*.test.ts'",
+    "typecheck": "npm run build -- --noEmit"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "@types/node": "^22.13.4",
+    "markdown-table": "^3.0.4",
+    "typescript": "^5.7.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  }
+}
