@@ -1,6 +1,6 @@
 {
   "name": "assert-response",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A lightweight utility library for asserting HTTP response conditions and throwing a Response with the appropriate HTTP status code, and optional body and options.",
   "keywords": [
     "assert",
