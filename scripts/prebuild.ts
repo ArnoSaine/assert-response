@@ -114,7 +114,7 @@ ${Object.entries(
 ${markdownTable([
   ["Status Code", "Function _(Aliases)_", "Negated Function _(Aliases)_"],
   ...codes.map(({ code, names, negations }) => [
-    String(code),
+    `[${code}](https://developer.mozilla.org/docs/Web/HTTP/Status/${code})`,
     printFunctions(names),
     printFunctions(negations),
   ]),
