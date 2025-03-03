@@ -1127,6 +1127,7 @@ export const loopDetected: HttpResponseAssertionFalsy = createResponseAssertionF
  * @throws {Response} - A `Response` object with status `508 Loop Detected` and the given body/init.
  */
 export const loopNotDetected: HttpResponseAssertion = negate(loopDetected);
+export { loopNotDetected as noLoop };
 
 /**
  * Throws a `Response` with status `509 Bandwidth Limit Exceeded` if the condition is truthy.
@@ -1146,6 +1147,7 @@ export const bandwidthLimitExceeded: HttpResponseAssertionFalsy = createResponse
  * @throws {Response} - A `Response` object with status `509 Bandwidth Limit Exceeded` and the given body/init.
  */
 export const bandwidthLimitNotExceeded: HttpResponseAssertion = negate(bandwidthLimitExceeded);
+export { bandwidthLimitNotExceeded as bandwidthAvailable };
 
 /**
  * Throws a `Response` with status `510 Not Extended` if the condition is truthy.

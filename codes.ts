@@ -231,11 +231,15 @@ export const codes = [
     names: ["insufficientStorage"],
     negations: ["sufficientStorage", "storageAvailable"],
   },
-  { code: 508, names: ["loopDetected"], negations: ["loopNotDetected"] },
+  {
+    code: 508,
+    names: ["loopDetected"],
+    negations: ["loopNotDetected", "noLoop"],
+  },
   {
     code: 509,
     names: ["bandwidthLimitExceeded"],
-    negations: ["bandwidthLimitNotExceeded"],
+    negations: ["bandwidthLimitNotExceeded", "bandwidthAvailable"],
   },
   { code: 510, names: ["notExtended"], negations: ["extended"] },
   {

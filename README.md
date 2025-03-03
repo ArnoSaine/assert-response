@@ -253,8 +253,8 @@ Each function is mapped to an HTTP status code.
 | [505](https://developer.mozilla.org/docs/Web/HTTP/Status/505) | `httpVersionNotSupported`       | `httpVersionSupported`                                                      |
 | [506](https://developer.mozilla.org/docs/Web/HTTP/Status/506) | `variantAlsoNegotiates`         | `notVariantAlsoNegotiates` <br> _(`variantNotNegotiating`)_                 |
 | [507](https://developer.mozilla.org/docs/Web/HTTP/Status/507) | `insufficientStorage`           | `sufficientStorage` <br> _(`storageAvailable`)_                             |
-| [508](https://developer.mozilla.org/docs/Web/HTTP/Status/508) | `loopDetected`                  | `loopNotDetected`                                                           |
-| [509](https://developer.mozilla.org/docs/Web/HTTP/Status/509) | `bandwidthLimitExceeded`        | `bandwidthLimitNotExceeded`                                                 |
+| [508](https://developer.mozilla.org/docs/Web/HTTP/Status/508) | `loopDetected`                  | `loopNotDetected` <br> _(`noLoop`)_                                         |
+| [509](https://developer.mozilla.org/docs/Web/HTTP/Status/509) | `bandwidthLimitExceeded`        | `bandwidthLimitNotExceeded` <br> _(`bandwidthAvailable`)_                   |
 | [510](https://developer.mozilla.org/docs/Web/HTTP/Status/510) | `notExtended`                   | `extended`                                                                  |
 | [511](https://developer.mozilla.org/docs/Web/HTTP/Status/511) | `networkAuthenticationRequired` | `networkAuthenticationNotRequired` <br> _(`networkAuthenticationOptional`)_ |
 
