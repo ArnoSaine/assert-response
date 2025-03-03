@@ -635,8 +635,8 @@ export const preconditionFailed: HttpResponseAssertionFalsy = createResponseAsse
  * @param init - Optional response init options, or a function returning init options.
  * @throws {Response} - A `Response` object with status `412 Precondition Failed` and the given body/init.
  */
-export const notPreconditionFailed: HttpResponseAssertion = negate(preconditionFailed);
-export { notPreconditionFailed as preconditionMet, notPreconditionFailed as preconditionPassed };
+export const successfulPrecondition: HttpResponseAssertion = negate(preconditionFailed);
+export { successfulPrecondition as preconditionMet, successfulPrecondition as preconditionPassed };
 
 /**
  * Throws a `Response` with status `413 Payload Too Large` if the condition is truthy.
