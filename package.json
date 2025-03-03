@@ -21,7 +21,8 @@
   "exports": "./lib/main.js",
   "files": [
     "lib",
-    "src"
+    "src",
+    "!src/**/*.test.*"
   ],
   "scripts": {
     "prebuild": "node scripts/prebuild.ts",
