@@ -185,11 +185,11 @@ Each function is mapped to an HTTP status code.
 | ------------------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------- |
 | [200](https://developer.mozilla.org/docs/Web/HTTP/Status/200) | `ok` <br> _(`successful`)_    | `notOk` <br> _(`failed`)_                                            |
 | [201](https://developer.mozilla.org/docs/Web/HTTP/Status/201) | `created`                     | `notCreated` <br> _(`creationFailed`)_                               |
-| [202](https://developer.mozilla.org/docs/Web/HTTP/Status/202) | `accepted`                    | `notAccepted`                                                        |
+| [202](https://developer.mozilla.org/docs/Web/HTTP/Status/202) | `accepted`                    | `notAccepted` <br> _(`rejected`)_                                    |
 | [203](https://developer.mozilla.org/docs/Web/HTTP/Status/203) | `nonAuthoritativeInformation` | `notNonAuthoritativeInformation` <br> _(`authoritativeInformation`)_ |
 | [204](https://developer.mozilla.org/docs/Web/HTTP/Status/204) | `noContent`                   | `notNoContent` <br> _(`content`)_                                    |
 | [205](https://developer.mozilla.org/docs/Web/HTTP/Status/205) | `resetContent`                | `notResetContent`                                                    |
-| [206](https://developer.mozilla.org/docs/Web/HTTP/Status/206) | `partialContent`              | `notPartialContent` <br> _(`entireContent`)_                         |
+| [206](https://developer.mozilla.org/docs/Web/HTTP/Status/206) | `partialContent`              | `notPartialContent` <br> _(`entireContent`, `fullContent`)_          |
 | [207](https://developer.mozilla.org/docs/Web/HTTP/Status/207) | `multiStatus`                 | `notMultiStatus` <br> _(`singleStatus`)_                             |
 | [208](https://developer.mozilla.org/docs/Web/HTTP/Status/208) | `alreadyReported`             | `notAlreadyReported`                                                 |
 | [226](https://developer.mozilla.org/docs/Web/HTTP/Status/226) | `imUsed`                      | `notImUsed`                                                          |
@@ -209,53 +209,53 @@ Each function is mapped to an HTTP status code.
 
 #### Client Error Responses (`400`–`499`)
 
-| Status Code                                                   | Function _(Aliases)_            | Negated Function _(Aliases)_                       |
-| ------------------------------------------------------------- | ------------------------------- | -------------------------------------------------- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | `badRequest` <br> _(`invalid`)_ | `goodRequest` <br> _(`valid`)_                     |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | `unauthorized`                  | `authorized` <br> _(`authenticated`)_              |
-| [402](https://developer.mozilla.org/docs/Web/HTTP/Status/402) | `paymentRequired`               | `paymentNotRequired`                               |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | `forbidden`                     | `notForbidden` <br> _(`allowed`)_                  |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | `notFound`                      | `found`                                            |
-| [405](https://developer.mozilla.org/docs/Web/HTTP/Status/405) | `methodNotAllowed`              | `methodAllowed`                                    |
-| [406](https://developer.mozilla.org/docs/Web/HTTP/Status/406) | `notAcceptable`                 | `acceptable`                                       |
-| [407](https://developer.mozilla.org/docs/Web/HTTP/Status/407) | `proxyAuthRequired`             | `proxyAuthNotRequired`                             |
-| [408](https://developer.mozilla.org/docs/Web/HTTP/Status/408) | `requestTimeout`                | `notRequestTimeout`                                |
-| [409](https://developer.mozilla.org/docs/Web/HTTP/Status/409) | `conflict`                      | `notConflict` <br> _(`match`)_                     |
-| [410](https://developer.mozilla.org/docs/Web/HTTP/Status/410) | `gone`                          | `notGone` <br> _(`present`)_                       |
-| [411](https://developer.mozilla.org/docs/Web/HTTP/Status/411) | `lengthRequired`                | `lengthNotRequired`                                |
-| [412](https://developer.mozilla.org/docs/Web/HTTP/Status/412) | `preconditionFailed`            | `notPreconditionFailed` <br> _(`preconditionMet`)_ |
-| [413](https://developer.mozilla.org/docs/Web/HTTP/Status/413) | `payloadTooLarge`               | `notPayloadTooLarge`                               |
-| [414](https://developer.mozilla.org/docs/Web/HTTP/Status/414) | `uriTooLong`                    | `uriNotTooLong`                                    |
-| [415](https://developer.mozilla.org/docs/Web/HTTP/Status/415) | `unsupportedMediaType`          | `supportedMediaType`                               |
-| [416](https://developer.mozilla.org/docs/Web/HTTP/Status/416) | `rangeNotSatisfiable`           | `rangeSatisfiable`                                 |
-| [417](https://developer.mozilla.org/docs/Web/HTTP/Status/417) | `expectationFailed`             | `expectationSuccessful`                            |
-| [418](https://developer.mozilla.org/docs/Web/HTTP/Status/418) | `teapot`                        | `notTeapot`                                        |
-| [421](https://developer.mozilla.org/docs/Web/HTTP/Status/421) | `misdirectedRequest`            | `correctlyDirectedRequest`                         |
-| [422](https://developer.mozilla.org/docs/Web/HTTP/Status/422) | `unprocessableEntity`           | `processableEntity`                                |
-| [423](https://developer.mozilla.org/docs/Web/HTTP/Status/423) | `locked`                        | `unlocked` <br> _(`open`)_                         |
-| [424](https://developer.mozilla.org/docs/Web/HTTP/Status/424) | `failedDependency`              | `successfulDependency` <br> _(`dependencyMet`)_    |
-| [425](https://developer.mozilla.org/docs/Web/HTTP/Status/425) | `tooEarly`                      | `notTooEarly` <br> _(`afterSufficientTime`)_       |
-| [426](https://developer.mozilla.org/docs/Web/HTTP/Status/426) | `upgradeRequired`               | `upgradeNotRequired`                               |
-| [428](https://developer.mozilla.org/docs/Web/HTTP/Status/428) | `preconditionRequired`          | `preconditionNotRequired`                          |
-| [429](https://developer.mozilla.org/docs/Web/HTTP/Status/429) | `tooManyRequests`               | `notTooManyRequests`                               |
-| [431](https://developer.mozilla.org/docs/Web/HTTP/Status/431) | `requestHeaderFieldsTooLarge`   | `requestHeaderFieldsAcceptable`                    |
-| [451](https://developer.mozilla.org/docs/Web/HTTP/Status/451) | `unavailableForLegalReasons`    | `availableForLegalReasons`                         |
+| Status Code                                                   | Function _(Aliases)_            | Negated Function _(Aliases)_                                             |
+| ------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------ |
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | `badRequest` <br> _(`invalid`)_ | `goodRequest` <br> _(`valid`, `correct`)_                                |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | `unauthorized`                  | `authorized` <br> _(`authenticated`)_                                    |
+| [402](https://developer.mozilla.org/docs/Web/HTTP/Status/402) | `paymentRequired`               | `paymentNotRequired` <br> _(`paymentOptional`)_                          |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | `forbidden`                     | `notForbidden` <br> _(`allowed`, `permitted`)_                           |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | `notFound`                      | `found`                                                                  |
+| [405](https://developer.mozilla.org/docs/Web/HTTP/Status/405) | `methodNotAllowed`              | `methodAllowed`                                                          |
+| [406](https://developer.mozilla.org/docs/Web/HTTP/Status/406) | `notAcceptable`                 | `acceptable`                                                             |
+| [407](https://developer.mozilla.org/docs/Web/HTTP/Status/407) | `proxyAuthRequired`             | `proxyAuthNotRequired` <br> _(`proxyAuthOptional`)_                      |
+| [408](https://developer.mozilla.org/docs/Web/HTTP/Status/408) | `requestTimeout`                | `notRequestTimeout` <br> _(`requestFast`)_                               |
+| [409](https://developer.mozilla.org/docs/Web/HTTP/Status/409) | `conflict`                      | `notConflict` <br> _(`match`)_                                           |
+| [410](https://developer.mozilla.org/docs/Web/HTTP/Status/410) | `gone`                          | `notGone` <br> _(`present`)_                                             |
+| [411](https://developer.mozilla.org/docs/Web/HTTP/Status/411) | `lengthRequired`                | `lengthNotRequired` <br> _(`lengthOptional`)_                            |
+| [412](https://developer.mozilla.org/docs/Web/HTTP/Status/412) | `preconditionFailed`            | `notPreconditionFailed` <br> _(`preconditionMet`, `preconditionPassed`)_ |
+| [413](https://developer.mozilla.org/docs/Web/HTTP/Status/413) | `payloadTooLarge`               | `notPayloadTooLarge` <br> _(`payloadSmall`)_                             |
+| [414](https://developer.mozilla.org/docs/Web/HTTP/Status/414) | `uriTooLong`                    | `uriNotTooLong` <br> _(`uriShort`)_                                      |
+| [415](https://developer.mozilla.org/docs/Web/HTTP/Status/415) | `unsupportedMediaType`          | `supportedMediaType`                                                     |
+| [416](https://developer.mozilla.org/docs/Web/HTTP/Status/416) | `rangeNotSatisfiable`           | `rangeSatisfiable`                                                       |
+| [417](https://developer.mozilla.org/docs/Web/HTTP/Status/417) | `expectationFailed`             | `expectationSuccessful` <br> _(`expectationMet`, `expectationPassed`)_   |
+| [418](https://developer.mozilla.org/docs/Web/HTTP/Status/418) | `teapot`                        | `notTeapot`                                                              |
+| [421](https://developer.mozilla.org/docs/Web/HTTP/Status/421) | `misdirectedRequest`            | `correctlyDirectedRequest` <br> _(`directedRequest`)_                    |
+| [422](https://developer.mozilla.org/docs/Web/HTTP/Status/422) | `unprocessableEntity`           | `processableEntity`                                                      |
+| [423](https://developer.mozilla.org/docs/Web/HTTP/Status/423) | `locked`                        | `unlocked` <br> _(`open`)_                                               |
+| [424](https://developer.mozilla.org/docs/Web/HTTP/Status/424) | `failedDependency`              | `successfulDependency` <br> _(`dependencyMet`, `dependencyPassed`)_      |
+| [425](https://developer.mozilla.org/docs/Web/HTTP/Status/425) | `tooEarly`                      | `notTooEarly` <br> _(`afterSufficientTime`, `onTime`)_                   |
+| [426](https://developer.mozilla.org/docs/Web/HTTP/Status/426) | `upgradeRequired`               | `upgradeNotRequired` <br> _(`upgradeOptional`)_                          |
+| [428](https://developer.mozilla.org/docs/Web/HTTP/Status/428) | `preconditionRequired`          | `preconditionNotRequired` <br> _(`preconditionOptional`)_                |
+| [429](https://developer.mozilla.org/docs/Web/HTTP/Status/429) | `tooManyRequests`               | `notTooManyRequests` <br> _(`fewRequests`)_                              |
+| [431](https://developer.mozilla.org/docs/Web/HTTP/Status/431) | `requestHeaderFieldsTooLarge`   | `requestHeaderFieldsAcceptable` <br> _(`requestHeaderFieldsSmall`)_      |
+| [451](https://developer.mozilla.org/docs/Web/HTTP/Status/451) | `unavailableForLegalReasons`    | `availableForLegalReasons`                                               |
 
 #### Server Error Responses (`500`–`599`)
 
-| Status Code                                                   | Function _(Aliases)_            | Negated Function _(Aliases)_                                |
-| ------------------------------------------------------------- | ------------------------------- | ----------------------------------------------------------- |
-| [500](https://developer.mozilla.org/docs/Web/HTTP/Status/500) | `internalServerError`           | `noError` <br> _(`notInternalServerError`)_                 |
-| [501](https://developer.mozilla.org/docs/Web/HTTP/Status/501) | `notImplemented`                | `implemented`                                               |
-| [502](https://developer.mozilla.org/docs/Web/HTTP/Status/502) | `badGateway`                    | `goodGateway`                                               |
-| [503](https://developer.mozilla.org/docs/Web/HTTP/Status/503) | `serviceUnavailable`            | `serviceAvailable`                                          |
-| [504](https://developer.mozilla.org/docs/Web/HTTP/Status/504) | `gatewayTimeout`                | `notGatewayTimeout` <br> _(`gatewayResponsive`)_            |
-| [505](https://developer.mozilla.org/docs/Web/HTTP/Status/505) | `httpVersionNotSupported`       | `httpVersionSupported`                                      |
-| [506](https://developer.mozilla.org/docs/Web/HTTP/Status/506) | `variantAlsoNegotiates`         | `notVariantAlsoNegotiates` <br> _(`variantNotNegotiating`)_ |
-| [507](https://developer.mozilla.org/docs/Web/HTTP/Status/507) | `insufficientStorage`           | `sufficientStorage`                                         |
-| [508](https://developer.mozilla.org/docs/Web/HTTP/Status/508) | `loopDetected`                  | `loopNotDetected`                                           |
-| [509](https://developer.mozilla.org/docs/Web/HTTP/Status/509) | `bandwidthLimitExceeded`        | `bandwidthLimitNotExceeded`                                 |
-| [510](https://developer.mozilla.org/docs/Web/HTTP/Status/510) | `notExtended`                   | `extended`                                                  |
-| [511](https://developer.mozilla.org/docs/Web/HTTP/Status/511) | `networkAuthenticationRequired` | `networkAuthenticationNotRequired`                          |
+| Status Code                                                   | Function _(Aliases)_            | Negated Function _(Aliases)_                                                |
+| ------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------- |
+| [500](https://developer.mozilla.org/docs/Web/HTTP/Status/500) | `internalServerError`           | `noError` <br> _(`notInternalServerError`)_                                 |
+| [501](https://developer.mozilla.org/docs/Web/HTTP/Status/501) | `notImplemented`                | `implemented`                                                               |
+| [502](https://developer.mozilla.org/docs/Web/HTTP/Status/502) | `badGateway`                    | `goodGateway`                                                               |
+| [503](https://developer.mozilla.org/docs/Web/HTTP/Status/503) | `serviceUnavailable`            | `serviceAvailable`                                                          |
+| [504](https://developer.mozilla.org/docs/Web/HTTP/Status/504) | `gatewayTimeout`                | `notGatewayTimeout` <br> _(`gatewayResponsive`)_                            |
+| [505](https://developer.mozilla.org/docs/Web/HTTP/Status/505) | `httpVersionNotSupported`       | `httpVersionSupported`                                                      |
+| [506](https://developer.mozilla.org/docs/Web/HTTP/Status/506) | `variantAlsoNegotiates`         | `notVariantAlsoNegotiates` <br> _(`variantNotNegotiating`)_                 |
+| [507](https://developer.mozilla.org/docs/Web/HTTP/Status/507) | `insufficientStorage`           | `sufficientStorage` <br> _(`storageAvailable`)_                             |
+| [508](https://developer.mozilla.org/docs/Web/HTTP/Status/508) | `loopDetected`                  | `loopNotDetected`                                                           |
+| [509](https://developer.mozilla.org/docs/Web/HTTP/Status/509) | `bandwidthLimitExceeded`        | `bandwidthLimitNotExceeded`                                                 |
+| [510](https://developer.mozilla.org/docs/Web/HTTP/Status/510) | `notExtended`                   | `extended`                                                                  |
+| [511](https://developer.mozilla.org/docs/Web/HTTP/Status/511) | `networkAuthenticationRequired` | `networkAuthenticationNotRequired` <br> _(`networkAuthenticationOptional`)_ |
 
 <!-- </Assertion Functions> -->

@@ -86,6 +86,7 @@ export const accepted: HttpResponseAssertionFalsy = createResponseAssertionFunct
  * @throws {Response} - A `Response` object with status `202 Accepted` and the given body/init.
  */
 export const notAccepted: HttpResponseAssertion = negate(accepted);
+export { notAccepted as rejected };
 
 /**
  * Throws a `Response` with status `203 Non-Authoritative Information` if the condition is truthy.
@@ -164,7 +165,7 @@ export const partialContent: HttpResponseAssertionFalsy = createResponseAssertio
  * @throws {Response} - A `Response` object with status `206 Partial Content` and the given body/init.
  */
 export const notPartialContent: HttpResponseAssertion = negate(partialContent);
-export { notPartialContent as entireContent };
+export { notPartialContent as entireContent, notPartialContent as fullContent };
 
 /**
  * Throws a `Response` with status `207 Multi-Status` if the condition is truthy.
@@ -398,7 +399,7 @@ export { badRequest as invalid };
  * @throws {Response} - A `Response` object with status `400 Bad Request` and the given body/init.
  */
 export const goodRequest: HttpResponseAssertion = negate(badRequest);
-export { goodRequest as valid };
+export { goodRequest as valid, goodRequest as correct };
 
 /**
  * Throws a `Response` with status `401 Unauthorized` if the condition is truthy.
@@ -438,6 +439,7 @@ export const paymentRequired: HttpResponseAssertionFalsy = createResponseAsserti
  * @throws {Response} - A `Response` object with status `402 Payment Required` and the given body/init.
  */
 export const paymentNotRequired: HttpResponseAssertion = negate(paymentRequired);
+export { paymentNotRequired as paymentOptional };
 
 /**
  * Throws a `Response` with status `403 Forbidden` if the condition is truthy.
@@ -457,7 +459,7 @@ export const forbidden: HttpResponseAssertionFalsy = createResponseAssertionFunc
  * @throws {Response} - A `Response` object with status `403 Forbidden` and the given body/init.
  */
 export const notForbidden: HttpResponseAssertion = negate(forbidden);
-export { notForbidden as allowed };
+export { notForbidden as allowed, notForbidden as permitted };
 
 /**
  * Throws a `Response` with status `404 Not Found` if the condition is truthy.
@@ -534,6 +536,7 @@ export const proxyAuthRequired: HttpResponseAssertionFalsy = createResponseAsser
  * @throws {Response} - A `Response` object with status `407 Proxy Authentication Required` and the given body/init.
  */
 export const proxyAuthNotRequired: HttpResponseAssertion = negate(proxyAuthRequired);
+export { proxyAuthNotRequired as proxyAuthOptional };
 
 /**
  * Throws a `Response` with status `408 Request Timeout` if the condition is truthy.
@@ -553,6 +556,7 @@ export const requestTimeout: HttpResponseAssertionFalsy = createResponseAssertio
  * @throws {Response} - A `Response` object with status `408 Request Timeout` and the given body/init.
  */
 export const notRequestTimeout: HttpResponseAssertion = negate(requestTimeout);
+export { notRequestTimeout as requestFast };
 
 /**
  * Throws a `Response` with status `409 Conflict` if the condition is truthy.
@@ -612,6 +616,7 @@ export const lengthRequired: HttpResponseAssertionFalsy = createResponseAssertio
  * @throws {Response} - A `Response` object with status `411 Length Required` and the given body/init.
  */
 export const lengthNotRequired: HttpResponseAssertion = negate(lengthRequired);
+export { lengthNotRequired as lengthOptional };
 
 /**
  * Throws a `Response` with status `412 Precondition Failed` if the condition is truthy.
@@ -631,7 +636,7 @@ export const preconditionFailed: HttpResponseAssertionFalsy = createResponseAsse
  * @throws {Response} - A `Response` object with status `412 Precondition Failed` and the given body/init.
  */
 export const notPreconditionFailed: HttpResponseAssertion = negate(preconditionFailed);
-export { notPreconditionFailed as preconditionMet };
+export { notPreconditionFailed as preconditionMet, notPreconditionFailed as preconditionPassed };
 
 /**
  * Throws a `Response` with status `413 Payload Too Large` if the condition is truthy.
@@ -651,6 +656,7 @@ export const payloadTooLarge: HttpResponseAssertionFalsy = createResponseAsserti
  * @throws {Response} - A `Response` object with status `413 Payload Too Large` and the given body/init.
  */
 export const notPayloadTooLarge: HttpResponseAssertion = negate(payloadTooLarge);
+export { notPayloadTooLarge as payloadSmall };
 
 /**
  * Throws a `Response` with status `414 URI Too Long` if the condition is truthy.
@@ -670,6 +676,7 @@ export const uriTooLong: HttpResponseAssertionFalsy = createResponseAssertionFun
  * @throws {Response} - A `Response` object with status `414 URI Too Long` and the given body/init.
  */
 export const uriNotTooLong: HttpResponseAssertion = negate(uriTooLong);
+export { uriNotTooLong as uriShort };
 
 /**
  * Throws a `Response` with status `415 Unsupported Media Type` if the condition is truthy.
@@ -727,6 +734,7 @@ export const expectationFailed: HttpResponseAssertionFalsy = createResponseAsser
  * @throws {Response} - A `Response` object with status `417 Expectation Failed` and the given body/init.
  */
 export const expectationSuccessful: HttpResponseAssertion = negate(expectationFailed);
+export { expectationSuccessful as expectationMet, expectationSuccessful as expectationPassed };
 
 /**
  * Throws a `Response` with status `418 I'm a Teapot` if the condition is truthy.
@@ -765,6 +773,7 @@ export const misdirectedRequest: HttpResponseAssertionFalsy = createResponseAsse
  * @throws {Response} - A `Response` object with status `421 Misdirected Request` and the given body/init.
  */
 export const correctlyDirectedRequest: HttpResponseAssertion = negate(misdirectedRequest);
+export { correctlyDirectedRequest as directedRequest };
 
 /**
  * Throws a `Response` with status `422 Unprocessable Entity` if the condition is truthy.
@@ -823,7 +832,7 @@ export const failedDependency: HttpResponseAssertionFalsy = createResponseAssert
  * @throws {Response} - A `Response` object with status `424 Failed Dependency` and the given body/init.
  */
 export const successfulDependency: HttpResponseAssertion = negate(failedDependency);
-export { successfulDependency as dependencyMet };
+export { successfulDependency as dependencyMet, successfulDependency as dependencyPassed };
 
 /**
  * Throws a `Response` with status `425 Too Early` if the condition is truthy.
@@ -843,7 +852,7 @@ export const tooEarly: HttpResponseAssertionFalsy = createResponseAssertionFunct
  * @throws {Response} - A `Response` object with status `425 Too Early` and the given body/init.
  */
 export const notTooEarly: HttpResponseAssertion = negate(tooEarly);
-export { notTooEarly as afterSufficientTime };
+export { notTooEarly as afterSufficientTime, notTooEarly as onTime };
 
 /**
  * Throws a `Response` with status `426 Upgrade Required` if the condition is truthy.
@@ -863,6 +872,7 @@ export const upgradeRequired: HttpResponseAssertionFalsy = createResponseAsserti
  * @throws {Response} - A `Response` object with status `426 Upgrade Required` and the given body/init.
  */
 export const upgradeNotRequired: HttpResponseAssertion = negate(upgradeRequired);
+export { upgradeNotRequired as upgradeOptional };
 
 /**
  * Throws a `Response` with status `428 Precondition Required` if the condition is truthy.
@@ -882,6 +892,7 @@ export const preconditionRequired: HttpResponseAssertionFalsy = createResponseAs
  * @throws {Response} - A `Response` object with status `428 Precondition Required` and the given body/init.
  */
 export const preconditionNotRequired: HttpResponseAssertion = negate(preconditionRequired);
+export { preconditionNotRequired as preconditionOptional };
 
 /**
  * Throws a `Response` with status `429 Too Many Requests` if the condition is truthy.
@@ -901,6 +912,7 @@ export const tooManyRequests: HttpResponseAssertionFalsy = createResponseAsserti
  * @throws {Response} - A `Response` object with status `429 Too Many Requests` and the given body/init.
  */
 export const notTooManyRequests: HttpResponseAssertion = negate(tooManyRequests);
+export { notTooManyRequests as fewRequests };
 
 /**
  * Throws a `Response` with status `431 Request Header Fields Too Large` if the condition is truthy.
@@ -920,6 +932,7 @@ export const requestHeaderFieldsTooLarge: HttpResponseAssertionFalsy = createRes
  * @throws {Response} - A `Response` object with status `431 Request Header Fields Too Large` and the given body/init.
  */
 export const requestHeaderFieldsAcceptable: HttpResponseAssertion = negate(requestHeaderFieldsTooLarge);
+export { requestHeaderFieldsAcceptable as requestHeaderFieldsSmall };
 
 /**
  * Throws a `Response` with status `451 Unavailable For Legal Reasons` if the condition is truthy.
@@ -1094,6 +1107,7 @@ export const insufficientStorage: HttpResponseAssertionFalsy = createResponseAss
  * @throws {Response} - A `Response` object with status `507 Insufficient Storage` and the given body/init.
  */
 export const sufficientStorage: HttpResponseAssertion = negate(insufficientStorage);
+export { sufficientStorage as storageAvailable };
 
 /**
  * Throws a `Response` with status `508 Loop Detected` if the condition is truthy.
@@ -1170,3 +1184,4 @@ export const networkAuthenticationRequired: HttpResponseAssertionFalsy = createR
  * @throws {Response} - A `Response` object with status `511 Network Authentication Required` and the given body/init.
  */
 export const networkAuthenticationNotRequired: HttpResponseAssertion = negate(networkAuthenticationRequired);
+export { networkAuthenticationNotRequired as networkAuthenticationOptional };

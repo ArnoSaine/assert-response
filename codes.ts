@@ -11,7 +11,7 @@ export const codes = [
     names: ["created"],
     negations: ["notCreated", "creationFailed"],
   },
-  { code: 202, names: ["accepted"], negations: ["notAccepted"] },
+  { code: 202, names: ["accepted"], negations: ["notAccepted", "rejected"] },
   {
     code: 203,
     names: ["nonAuthoritativeInformation"],
@@ -26,7 +26,7 @@ export const codes = [
   {
     code: 206,
     names: ["partialContent"],
-    negations: ["notPartialContent", "entireContent"],
+    negations: ["notPartialContent", "entireContent", "fullContent"],
   },
   {
     code: 207,
@@ -72,7 +72,7 @@ export const codes = [
   {
     code: 400,
     names: ["badRequest", "invalid"],
-    negations: ["goodRequest", "valid"],
+    negations: ["goodRequest", "valid", "correct"],
   },
   {
     code: 401,
@@ -82,12 +82,12 @@ export const codes = [
   {
     code: 402,
     names: ["paymentRequired"],
-    negations: ["paymentNotRequired"],
+    negations: ["paymentNotRequired", "paymentOptional"],
   },
   {
     code: 403,
     names: ["forbidden"],
-    negations: ["notForbidden", "allowed"],
+    negations: ["notForbidden", "allowed", "permitted"],
   },
   {
     code: 404,
@@ -103,31 +103,39 @@ export const codes = [
   {
     code: 407,
     names: ["proxyAuthRequired"],
-    negations: ["proxyAuthNotRequired"],
+    negations: ["proxyAuthNotRequired", "proxyAuthOptional"],
   },
   {
     code: 408,
     names: ["requestTimeout"],
-    negations: ["notRequestTimeout"],
+    negations: ["notRequestTimeout", "requestFast"],
   },
   { code: 409, names: ["conflict"], negations: ["notConflict", "match"] },
   { code: 410, names: ["gone"], negations: ["notGone", "present"] },
   {
     code: 411,
     names: ["lengthRequired"],
-    negations: ["lengthNotRequired"],
+    negations: ["lengthNotRequired", "lengthOptional"],
   },
   {
     code: 412,
     names: ["preconditionFailed"],
-    negations: ["notPreconditionFailed", "preconditionMet"],
+    negations: [
+      "notPreconditionFailed",
+      "preconditionMet",
+      "preconditionPassed",
+    ],
   },
   {
     code: 413,
     names: ["payloadTooLarge"],
-    negations: ["notPayloadTooLarge"],
+    negations: ["notPayloadTooLarge", "payloadSmall"],
   },
-  { code: 414, names: ["uriTooLong"], negations: ["uriNotTooLong"] },
+  {
+    code: 414,
+    names: ["uriTooLong"],
+    negations: ["uriNotTooLong", "uriShort"],
+  },
   {
     code: 415,
     names: ["unsupportedMediaType"],
@@ -141,13 +149,13 @@ export const codes = [
   {
     code: 417,
     names: ["expectationFailed"],
-    negations: ["expectationSuccessful"],
+    negations: ["expectationSuccessful", "expectationMet", "expectationPassed"],
   },
   { code: 418, names: ["teapot"], negations: ["notTeapot"] },
   {
     code: 421,
     names: ["misdirectedRequest"],
-    negations: ["correctlyDirectedRequest"],
+    negations: ["correctlyDirectedRequest", "directedRequest"],
   },
   {
     code: 422,
@@ -158,32 +166,32 @@ export const codes = [
   {
     code: 424,
     names: ["failedDependency"],
-    negations: ["successfulDependency", "dependencyMet"],
+    negations: ["successfulDependency", "dependencyMet", "dependencyPassed"],
   },
   {
     code: 425,
     names: ["tooEarly"],
-    negations: ["notTooEarly", "afterSufficientTime"],
+    negations: ["notTooEarly", "afterSufficientTime", "onTime"],
   },
   {
     code: 426,
     names: ["upgradeRequired"],
-    negations: ["upgradeNotRequired"],
+    negations: ["upgradeNotRequired", "upgradeOptional"],
   },
   {
     code: 428,
     names: ["preconditionRequired"],
-    negations: ["preconditionNotRequired"],
+    negations: ["preconditionNotRequired", "preconditionOptional"],
   },
   {
     code: 429,
     names: ["tooManyRequests"],
-    negations: ["notTooManyRequests"],
+    negations: ["notTooManyRequests", "fewRequests"],
   },
   {
     code: 431,
     names: ["requestHeaderFieldsTooLarge"],
-    negations: ["requestHeaderFieldsAcceptable"],
+    negations: ["requestHeaderFieldsAcceptable", "requestHeaderFieldsSmall"],
   },
   {
     code: 451,
@@ -221,7 +229,7 @@ export const codes = [
   {
     code: 507,
     names: ["insufficientStorage"],
-    negations: ["sufficientStorage"],
+    negations: ["sufficientStorage", "storageAvailable"],
   },
   { code: 508, names: ["loopDetected"], negations: ["loopNotDetected"] },
   {
@@ -233,6 +241,9 @@ export const codes = [
   {
     code: 511,
     names: ["networkAuthenticationRequired"],
-    negations: ["networkAuthenticationNotRequired"],
+    negations: [
+      "networkAuthenticationNotRequired",
+      "networkAuthenticationOptional",
+    ],
   },
 ];
