@@ -82,8 +82,8 @@ function action() {
 This example ensures:
 
 - 👋 The user is authenticated (`401 Unauthorized`).
-- ✅ The user has permission to update the document (`403 Forbidden`).
-- 👍 The input is valid (`400 Bad Request`).
+- 🔓 The user has permission to update the document (`403 Forbidden`).
+- ✅ The input is valid (`400 Bad Request`).
 - 🔍 The document exists (`404 Not Found`).
 - 🤝 The document has not been modified since the last retrieval (`409 Conflict`).
 - ⚠️ / 👌 The update is successful (`500 Internal Server Error` / `204 No Content`).
@@ -110,13 +110,13 @@ async function saveAndContinueEditing(doc?: Document) {
   authorized(user, "Authentication required");
   user; // Type is now User
 
-  // ✅ Throws a 403 response if not permitted
+  // 🔓 Throws a 403 response if not permitted
   allowed(
     user.permissions.includes("update-document"),
     "Permission to update document required"
   );
 
-  // 👍 Throws a 400 response if missing update document
+  // ✅ Throws a 400 response if missing update document
   valid(doc, "Missing document");
   doc; // Type is now Document
 
