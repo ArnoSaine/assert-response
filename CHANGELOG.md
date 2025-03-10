@@ -1,5 +1,16 @@
 # assert-response
 
+## 0.2.0
+
+### Minor Changes
+
+- baaf45d: Rename `notPreconditionFailed` to `successfulPrecondition`
+
+### Patch Changes
+
+- 728cb1b: Add aliases
+- cbbb63f: Remove test files from the package
+
 ## 0.1.1
 
 ### Patch Changes
