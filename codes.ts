@@ -121,7 +121,7 @@ export const codes = [
     code: 412,
     names: ["preconditionFailed"],
     negations: [
-      "successfulPrecondition",
+      "preconditionSuccessful",
       "preconditionMet",
       "preconditionPassed",
     ],

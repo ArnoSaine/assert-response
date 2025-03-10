@@ -223,7 +223,7 @@ Each function is mapped to an HTTP status code.
 | [409](https://developer.mozilla.org/docs/Web/HTTP/Status/409) | `conflict`                      | `notConflict` <br> _(`match`)_                                            |
 | [410](https://developer.mozilla.org/docs/Web/HTTP/Status/410) | `gone`                          | `notGone` <br> _(`present`)_                                              |
 | [411](https://developer.mozilla.org/docs/Web/HTTP/Status/411) | `lengthRequired`                | `lengthNotRequired` <br> _(`lengthOptional`)_                             |
-| [412](https://developer.mozilla.org/docs/Web/HTTP/Status/412) | `preconditionFailed`            | `successfulPrecondition` <br> _(`preconditionMet`, `preconditionPassed`)_ |
+| [412](https://developer.mozilla.org/docs/Web/HTTP/Status/412) | `preconditionFailed`            | `preconditionSuccessful` <br> _(`preconditionMet`, `preconditionPassed`)_ |
 | [413](https://developer.mozilla.org/docs/Web/HTTP/Status/413) | `payloadTooLarge`               | `notPayloadTooLarge` <br> _(`payloadSmall`)_                              |
 | [414](https://developer.mozilla.org/docs/Web/HTTP/Status/414) | `uriTooLong`                    | `uriNotTooLong` <br> _(`uriShort`)_                                       |
 | [415](https://developer.mozilla.org/docs/Web/HTTP/Status/415) | `unsupportedMediaType`          | `supportedMediaType`                                                      |
